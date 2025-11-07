@@ -1,32 +1,22 @@
 import streamlit as st
-import datetime
-import time
+
 import os
+
+
 
 #Page Config
 THRESHOLD = 5
 PAGE_TITLE = "Wash Log"
 LOTIONS_AT = "lotion_at"
 COUNT_KEY = "today_count"
-DATE_KEY = "current_date"
+
 
 
 #INIT Session state
 
 if COUNT_KEY not in st.session_state:
     st.session_state[COUNT_KEY] = 0
-if DATE_KEY not in st.session_state:
-    st.session_state[DATE_KEY] = datetime.date.today()
 
-
-#Reset Logic
-today = datetime.date.today()
-if st.session_state[DATE_KEY] != today:
-    #New Day
-    was_good = st.session_state[COUNT_KEY] >= st.session_state[LOTIONS_AT]
-    st.session_state[COUNT_KEY] = 0
-    st.session_state[DATE_KEY] = today
-    st.success("New day! Counter reset")
 
 #UI
 st.set_page_config(page_title = PAGE_TITLE, page_icon = "soap", layout = "centered")
