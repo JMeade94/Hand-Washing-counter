@@ -1,8 +1,5 @@
 import streamlit as st
-
 import os
-
-
 
 #Page Config
 THRESHOLD = 5
@@ -10,13 +7,10 @@ PAGE_TITLE = "Wash Log"
 LOTIONS_AT = "lotion_at"
 COUNT_KEY = "today_count"
 
-
-
 #INIT Session state
 
 if COUNT_KEY not in st.session_state:
     st.session_state[COUNT_KEY] = 0
-
 
 #UI
 st.set_page_config(page_title = PAGE_TITLE, page_icon = "soap", layout = "centered")
@@ -35,9 +29,7 @@ with col2:
 if st.session_state[COUNT_KEY] > 0 and (st.session_state[COUNT_KEY] % THRESHOLD == 0):
     st.balloons()
 
-
-
 #Footer
 st.markdown("---")
-st.caption("**No Data stored** | **Resets Daily**")
+st.caption("**No Data stored** | Made by JMeade")
 
